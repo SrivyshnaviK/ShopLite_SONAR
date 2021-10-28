@@ -1,0 +1,51 @@
+CREATE DATABASE  IF NOT EXISTS `shoplite`;
+
+USE `shoplite`;
+
+DROP TABLE IF EXISTS `user`;
+
+CREATE TABLE `user` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `first_name` varchar(45) DEFAULT NULL,
+  `last_name` varchar(45) DEFAULT NULL,
+  `email` varchar(45) DEFAULT NULL,
+  `password` varchar(45) default null,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
+
+DROP TABLE IF EXISTS `product`;
+
+CREATE TABLE `product` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(45) DEFAULT NULL,
+  `price` int(11) DEFAULT NULL,
+  `description` varchar(45) DEFAULT NULL,
+  `available` boolean default true,
+  `user_id` int(11) DEFAULT NULL,
+  primary key (id),
+  KEY `FK_DETAIL_idx` (`user_id`),
+  CONSTRAINT `FK_DETAIL` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1000 DEFAULT CHARSET=latin1;
+
+drop table if exists `ordered`;
+
+CREATE TABLE `ordered` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `pid` int(11) DEFAULT NULL,
+  `uid` int(11) DEFAULT NULL,
+  primary key (id)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
+
+truncate user;
+
+truncate ordered;
+
+truncate product;
+
+select * from user;
+
+select * from product;
+
+select * from ordered;
+
+

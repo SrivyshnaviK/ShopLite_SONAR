@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" th:href="@{/icon.png}">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <title>ShopLite</title>
+</head>
+<body>
+<h3 style="text-align:left;">Contact with product owner</h3>
+<h3 style="text-align:left;">Product will be dispatched soon..</h3>
+<h4 style="text-align:left;">Owner Details:</h4>
+<h5>
+    <pre><p>Name:</p><p th:text="${user.firstName}+' '+${user.lastName}" /></pre>
+    <pre><p>Email:</p><p th:text="${user.email}" /></pre>
+</h5>
+<p align="center">
+    <a th:href="@{/shoplite/user(uid=${userid})}" class="btn btn-primary">Back to ur page</a>
+</p>
+</body>
+</html>
